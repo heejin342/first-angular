@@ -1,0 +1,73 @@
+<form [formGroup]="data" (ngSubmit)="onSubmit(data)" #myForm="ngForm">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>이름</mat-label>
+      <input
+        required
+        matInput
+        placeholder="이름을 입력하세요"
+        [formControl]="name"
+      />
+      <mat-error *ngIf="name.invalid">이름을 입력하세요</mat-error>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>연락처</mat-label>
+      <input
+        required
+        matInput
+        placeholder="연락처를 입력하세요"
+        [formControl]="number"
+      />
+      <mat-error *ngIf="number.invalid">연락처를 입력하세요</mat-error>
+      <mat-icon matSuffix>phone_android</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>학교</mat-label>
+      <input
+        required
+        matInput
+        placeholder="학교를 입력하세요"
+        [formControl]="school"
+      />
+      <mat-error *ngIf="school.invalid">학꾜롤 입력하세요</mat-error>
+      <mat-icon matSuffix>school</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>부서</mat-label>
+      <input
+        required
+        matInput
+        placeholder="부서를 입력하세요"
+        [formControl]="part"
+      />
+      <mat-error *ngIf="part.invalid">부서를 입력하세요</mat-error>
+      <mat-icon matSuffix>history_edu</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="btn-radio-box">
+    <mat-radio-group aria-label="성별을 선택하세요" [formControl]="gender">
+      <mat-radio-button value="1" [checked]="gender.value === 1"
+        >남성</mat-radio-button
+      >
+      <mat-radio-button value="2" [checked]="gender.value === 2"
+        >여성</mat-radio-button
+      >
+    </mat-radio-group>
+    <mat-error *ngIf="gender.invalid && !submit">성별을 입력하세요</mat-error>
+  </div>
+
+  <div class="btn-box">
+    <button mat-raised-button color="accent" type="submit">등록하기</button>
+  </div>
+</form>
